@@ -1,7 +1,4 @@
-//Nome: Jo„o Vitor de Faria
-//Matricula: 2019006030
-//Trabalho 04
-//Codigo baseado no codigo disponibilizado pelo professor
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<utility>  
@@ -64,7 +61,7 @@ void adicionaArco(Digrafo * grafo, int inicio, int fim){
 	
 	return ;
 }
-//funcao para zerar o grafo, deixando ele inteiro como n„o visitado
+//funcao para zerar o grafo, deixando ele inteiro como n√£o visitado
 void marcarVerticeNaoVisitado(Digrafo * grafo){
 	for(int i=0;i<grafo->vertices;i++){
 		grafo->vetorVertices[i].visitado=0;
@@ -94,7 +91,7 @@ void segundoDFS(Digrafo * grafo, int vertice,  int * pertence, int * lider){
 			segundoDFS(grafo, vizinho,pertence, lider);
 		}
 	}
-	//a cada novo vertice eu verifico se ele È menor que o lider anterior. Desse modo eu vou atualizando o lider
+	//a cada novo vertice eu verifico se ele √© menor que o lider anterior. Desse modo eu vou atualizando o lider
 	if((*lider)>vertice)(*lider)=vertice;
 
 	
@@ -140,8 +137,8 @@ void kosaraju(Digrafo * grafo){
 	}
 	
 	std::map<int, int> pares; 
-	//aqui comeÁa a parte a ser feita
-	//o grafo ja foi percorrido por um dfs, entao È necessario marcar ele como n percorrido 
+	//aqui come√ßa a parte a ser feita
+	//o grafo ja foi percorrido por um dfs, entao √© necessario marcar ele como n percorrido 
 	marcarVerticeNaoVisitado(grafo);
 	for(int i=0;i<grafo->vertices;i++){
 		//eu preciso percorrer ele na ordem que esta salva no vetorOrdemSegundaPassada
@@ -163,7 +160,7 @@ void kosaraju(Digrafo * grafo){
 	for(int i=0;i<grafo->vertices;i++){
 		//para cada vertice eu percorro o map para achar o pair que tenha um key igual ao atributo componenteConexo do vertice
 		for (itr = pares.begin(); itr != pares.end(); ++itr){
-			//se eu encontrar uma key igual ao compenente conexo eu sei que o valor salvo no pair È o lider daquele SCC
+			//se eu encontrar uma key igual ao compenente conexo eu sei que o valor salvo no pair √© o lider daquele SCC
 			if(grafo->vetorVertices[i].componenteConexo==itr->first){
 				//dai eu printo o lider  que esta salvo no second
 				printf("%d ", itr->second);
